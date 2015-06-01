@@ -1,2 +1,3 @@
-# angularjs-avaliacao
-Avaliação em AngularJS (Básico)
+# AngularJS Avaliação
+
+Avaliação de AngularJS.

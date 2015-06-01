@@ -1,0 +1,72 @@
+<top-header></top-header>
+
+<main class="ls-main ">
+  <div class="container-fluid">
+
+    <h1 class="ls-title-intro ls-ico-list3">Lista Apostas</h1>
+
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="ls-pager">
+          <li class="ls-previous"><a href="javascript:void(0)" ng-click="rodadaAnterior()" >&laquo;</a></li>
+          <li class="ls-txt-center"><a href="javascript:void(0)"><h2>Rodada {{ rodada }}</h2></a></li>
+          <li class="ls-next"><a href="javascript:void(0)" ng-click="rodadaProxima()" >&raquo;</a></li>
+        </ul>
+        <hr>
+      </div>
+    </div>
+
+    <form name="apostasForm" novalidate>
+      <div ng-repeat="(key, jogos) in firebase" >
+        <div class="row">
+          <div class="col-md-12 ls-txt-center" style="margin-bottom:1em; margin-left:1em;">
+            <p style="color:#666; text-transform:uppercase; font-size: 11px;">
+              {{ jogos.data | date: "dd/MM/yyyy" }} - <b>{{ jogos.local }}</b> - {{ jogos.rodada }} Rodada
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10 col-md-offset-2 ls-txt-center">
+            <div class="col-md-1">
+              <p style="padding-top: 12px;" >{{ jogos.time1 }}</p>
+            </div>
+            <div class="col-md-1">
+              <img src="{{ jogos.escudoTime1 }}" >
+            </div>
+            <div class="col-md-2">
+              <h1>{{ apostas[key].placarTime1 }}</h1>
+            </div>
+            <div class="col-md-2">
+              <h1>X</h1>
+            </div>
+            <div class="col-md-2">
+              <h1>{{ apostas[key].placarTime2 }}</h1>
+            </div>
+            <div class="col-md-1">
+              <img src="{{ jogos.escudoTime2 }}" >
+            </div>
+            <div class="col-md-1">
+              <p style="padding-top: 12px;" >{{ jogos.time2 }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</main>
+
+<aside class="ls-sidebar">
+  <nav class="ls-menu">
+    <ul>
+      <li><a href="#/apostas" class="ls-ico-thumbs-up">Apostas</a></li>
+      <li><a href="#/lista-apostas" class="ls-ico-list3">Lista Apostas</a></li>
+      <li><a href="#/sair" class="ls-ico-export">Sair</a></li>
+    </ul>
+  </nav>
+</aside>
